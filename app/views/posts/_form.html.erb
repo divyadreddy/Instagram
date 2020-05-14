@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= form.label :caption %>
-    <%= form.text_area :caption %>
+    <%= form.text_area :caption,  :required => true%>
   </div>
   <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image%>
+    <%= form.file_field :image, :accept => "image/x-png,image/gif,image/jpeg" ,:required => true%>
   </div>
   <div class="actions">
     <%= form.submit %>

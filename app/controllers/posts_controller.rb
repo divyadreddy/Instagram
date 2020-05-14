@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc).page(params[:page]).per_page(2)
   end
 
   # GET /posts/1
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+    # redirect_to posts_path
   end
 
   # PATCH/PUT /posts/1

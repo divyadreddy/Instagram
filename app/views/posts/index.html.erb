@@ -1,27 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
+<%= link_to 'New Post', new_post_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Caption</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.caption %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+   <% @posts.each do |post| %>
+
+       <p><%= post.caption %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+       <p style="width:640px; height:auto">
+<%= image_tag(post.image, style:"width:100%") %></p>
+      
+
+   <% end %>
+
+<%= will_paginate @posts%>
+
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
