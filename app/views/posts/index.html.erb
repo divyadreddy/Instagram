@@ -3,18 +3,7 @@
 <h1>Posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-
-
-   <% @posts.each do |post| %>
-
-       <p><%= post.caption %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-       <p style="width:640px; height:auto">
-<%= image_tag(post.image, style:"width:100%") %></p>
-      
-
-   <% end %>
+<%= render @posts %>
 
 <%= will_paginate @posts%>
 
